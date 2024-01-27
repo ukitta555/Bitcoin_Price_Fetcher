@@ -55,7 +55,7 @@ fn main() {
 
       let kickoff = args.kickoff.expect("Kickoff time was not provided!");
 
-      // couldn't think of something better then just busy waiting 
+      // couldn't think of something better than just busy waiting 
       let mut current_time = SystemTime::now().duration_since(UNIX_EPOCH)
         .expect("Could not fetch current time!").as_secs();
       while current_time < kickoff {
