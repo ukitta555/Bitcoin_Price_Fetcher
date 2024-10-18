@@ -76,6 +76,11 @@ fn main() {
         let parsed_json: Response = serde_json::from_str(&api_response[..])
           .expect("Binance WS API returned an incorrectly formatted JSON string");
 
+        // match parsed_json {
+        //   Ok(res) => {...} 
+        //   Err(_) => { print!();}
+        // }
+        
         let current_price = parsed_json.result.price.parse::<f64>().expect("Binance WS API returned a price that is not a float");
         average += current_price;
         data_points.push(current_price); // don't perform writing to file while fetching data
@@ -173,7 +178,7 @@ fn main() {
                 } else {
                   panic!("Signature is not valid!");
                 }
-              },
+              },``
           }
       }
       average_of_averages /= f64::from(number_of_children);
